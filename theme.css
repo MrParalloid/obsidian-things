@@ -888,7 +888,7 @@ body.is-phone {
 
 .nav-files-container .tree-item-self .tree-item-icon {
     position: absolute;
-    right: 0;
+    /* right: 0; */
     display: flex;
     align-items: center;
     justify-content: center;
