@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.3.9
-@paralloid, 2025-09-05
+Version 2.3.10
+@paralloid, 2025-11-13
 ───────────────────────────────────────*/
 
 /* @settings
@@ -71,7 +71,7 @@ body {
     --icon-stroke: 1.5px !important;
     --icon-l-stroke-width: 1.5px !important;
     --embed-padding: 0px;
-    --menu-background: #2c3137;
+    --menu-background: var(--background-secondary);
     --tab-container-background: var(--background-secondary);
     --titlebar-background-focused: var(--titlebar-background);
     --ribbon-background: var(--titlebar-background);
