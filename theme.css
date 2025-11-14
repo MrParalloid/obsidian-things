@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.3.10
-@paralloid, 2025-11-13
+Version 2.3.11
+@paralloid, 2025-11-14
 ───────────────────────────────────────*/
 
 /* @settings
@@ -72,11 +72,12 @@ body {
     --icon-l-stroke-width: 1.5px !important;
     --embed-padding: 0px;
     --menu-background: var(--background-secondary);
+    --mobile-menu-background: var(--background-secondary);
     --tab-container-background: var(--background-secondary);
     --titlebar-background-focused: var(--titlebar-background);
     --ribbon-background: var(--titlebar-background);
     --pill-border-width: 1px !important;
-    --interactive-normal: var(--menu-background) !important;
+    --interactive-normal: var(--background-secondary) !important;
     --input-shadow: none !important;
     --input-shadow-hover: none !important;
 }
@@ -139,6 +140,7 @@ body.is-phone.theme-dark.mobile-full-black {
         --background-secondary: #000000 !important;
         --background-secondary-alt: #2b3138 !important;
         --titlebar-background-focused: #000000 !important;
+        --menu-background: #262b31 !important;
         --titlebar-background: var(--background-secondary) !important;
         --dropdown-background: #2b3138 !important;
         --modal-background: #2b3138 !important;
@@ -644,6 +646,10 @@ body.is-phone .menu-scroll {
     background-color: var(--menu-background);
 }
 
+.is-phone .menu .suggestion-group .suggestion-item:not(.is-label), .is-phone .menu-item:not(.is-label) {
+    background-color: var(--menu-background);
+}
+
 body.is-mobile .menu {
     background-color: var(--menu-background);
     position: fixed;
@@ -652,12 +658,11 @@ body.is-mobile .menu {
     margin-right: 18px 18px;
     max-width: 320px;
     border-radius: 12px;
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0px 24px rgba(0, 0, 0, 0.2);
     margin-bottom: 50px;
 }
 
 body.is-mobile .menu-item {
-    color: #fafbfb;
     outline: none;
     padding-top: 10px !important;
     padding-bottom: 10px !important;
@@ -710,11 +715,11 @@ body.is-mobile .menu-item-icon {
 
 body.is-phone .prompt {
         background-color: var(--modal-background) !important;
-        animation: zoom-in 0.25s var(--anim-motion-jumpy) forwards !important;
+        animation: zoom-in 0.25s var(--anim-motion-jumpy);
         box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5) !important;
         max-width: 90vw !important;
         max-height: 90vw !important;
-/*        transition: height 0.3s ease-out;*/
+        /* transition: height 0.3s ease-out; */
         border-radius: 12px;
         padding-bottom: 5vw;
 }
