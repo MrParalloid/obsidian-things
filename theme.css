@@ -400,6 +400,16 @@ body.is-phone .modal.mod-settings .modal-close-button {
     padding-right: 10px;
 }
 
+body:not(.is-phone) .modal-close-button {
+    margin-right: 6px;
+    margin-top: 4px;
+}
+
+body:not(.is-phone) .modal-close-button:hover {
+    box-shadow: var(--element-shadow);
+    background-color: var(--background-primary);
+}
+
 /* SOME LOVE TO TABLETS */
 
 body.is-tablet .workspace-drawer-header,
