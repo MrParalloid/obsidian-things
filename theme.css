@@ -84,7 +84,7 @@ body {
     --input-shadow-hover: none !important;
     --radius-s: 10px;
     --radius-m: 18px;
-    --radius-l: 36px;
+    --radius-l: 30px;
     --clickable-icon-radius: var(--radius-m);
     --modal-background: color-mix(in srgb, var(--background-secondary-alt) 95%, transparent);
     --metadata-divider-color: var(--background-secondary);
@@ -398,16 +398,6 @@ body.is-mobile .modal-header {
 
 body.is-phone .modal.mod-settings .modal-close-button {
     padding-right: 10px;
-}
-
-body:not(.is-phone) .modal-close-button {
-    margin-right: 6px;
-    margin-top: 4px;
-}
-
-body:not(.is-phone) .modal-close-button:hover {
-    box-shadow: var(--element-shadow);
-    background-color: var(--background-primary);
 }
 
 /* SOME LOVE TO TABLETS */
@@ -745,9 +735,14 @@ body.is-mobile .suggestion-group[data-group="properties"] ::selection {
     --icon-stroke: #ffffff !important;
 }
 
-.bases-toolbar-menu-item.mod-active {
-    --icon-color: var(--color-blue) !important;
-    --icon-stroke: var(--color-blue) !important;
+.suggestion-item.bases-toolbar-menu-item.is-selected {
+    background-color: #5c9aff !important;
+    color: #ffffff !important;
+}
+
+.bases-toolbar-menu-item.mod-active * {
+    --icon-color: var(--color-red) !important;
+    --icon-stroke: var(--color-red) !important;
 }
 
 body.is-mobile .bases-query-container {
@@ -824,7 +819,7 @@ body.is-mobile .menu {
     overflow: auto;
     margin-right: 18px 18px;
     max-width: 320px;
-    border-radius: var(--radius-l);
+    border-radius: 36px;
     border: 1px solid rgba(255, 255, 255, 0.13) !important;
     box-shadow: 0 0px 36px rgba(0, 0, 0, 0.6);
     margin-bottom: 30px;
@@ -1015,11 +1010,11 @@ body.is-mobile.theme-dark input.prompt-input {
     border: none;
 }
 .theme-dark .suggestion-item.is-selected {
-    background-color: #286bbd !important;
+    background-color: #286bbd;
   }
 
 .theme-light .suggestion-item.is-selected {
-    background-color: #c3d8ff !important;
+    background-color: #c3d8ff;
 }
 
 .suggestion-item {
