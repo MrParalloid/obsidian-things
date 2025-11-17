@@ -820,6 +820,12 @@ body.is-mobile .menu {
     margin-bottom: 30px;
 }
 
+body:not(.is-mobile) .menu {
+    color: #ffffff;
+    background-color: var(--menu-background);
+    box-shadow: 0 0px 22px rgba(0, 0, 0, 0.3);
+}
+
 body.is-mobile .menu-item {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
