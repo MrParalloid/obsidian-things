@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.5
+Version 2.5.6
 @paralloid, 2025-11-17
 ───────────────────────────────────────*/
 
@@ -1303,7 +1303,7 @@ body {
 }
 
 input[type=checkbox] {
-    border-radius: var(--checkbox-radius);
+    border-radius: 5px;
     border: 2px solid var(--checkbox-border-color);
     margin-inline-end: 6px;
     width: var(--checkbox-size);
@@ -1388,9 +1388,10 @@ input[type=checkbox]:checked:after {
 
 body.dataview-style .dataview.inline-field {
   padding: 2px 2px !important;
-  border-color: var(--div-color) !important;
   font-size: 0.8em !important;
   margin: 0 1px !important;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
 body.dataview-style .dataview.result-group {
@@ -1401,6 +1402,14 @@ body.dataview-style .dataview.task-list-item:hover,
 body.dataview-style .dataview.task-list-basic-item:hover {
     background-color: var(--background-primary) !important;
     box-shadow: -40px 0 0 var(--background-primary) !important;
+}
+
+.dataview.inline-field-key {
+    background-color: var(--background-secondary);
+}
+
+.dataview.inline-field-value {
+    background-color: var(--background-primary);
 }
 
 .dataview {
@@ -1462,11 +1471,22 @@ body.is-phone {
   display: none;
 }
 
+.base-toolbar-sort-item,
+.bases-toolbar-menu {
+    background-color: var(--background-secondary) !important;
+    border-radius: var(--radius-s);
+}
+
+.bases-sort-property {
+    background-color: var(--background-primary) !important;
+}
+
 .bases-embed {
     box-shadow: var(--element-shadow);
     border-radius: var(--radius-s);
     /* border: 0.75px solid rgba(127,127,127,0.1); */
 }
+
 .markdown-embed {
     /* border: 0.75px solid rgba(127,127,127,0.1); */
     border-radius: var(--radius-s);
