@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.6
-@paralloid, 2025-11-17
+Version 2.5.7
+@paralloid, 2025-11-18
 ───────────────────────────────────────*/
 
 /* @settings
@@ -84,12 +84,12 @@ body {
     --input-shadow-hover: none !important;
     --radius-s: 10px;
     --radius-m: 18px;
-    --radius-l: 28px;
+    --radius-l: 36px;
     --clickable-icon-radius: var(--radius-m);
     --modal-background: color-mix(in srgb, var(--background-secondary-alt) 95%, transparent);
     --metadata-divider-color: var(--background-secondary);
     --element-shadow: 0 0 20px rgba(0,0,0,0.1);
-    --dropdown-background: var(--background-secondary) !important;
+    --dropdown-background: var(--background-secondary);
 }
 
 /* DESKTOP DARK MODE COLORS */
@@ -195,7 +195,14 @@ body.is-tablet.theme-dark.tablet-full-black {
     --pill-background: rgb(244,244,244);
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --properties-background: var(--background-secondary);
-    --menu-background: #262b31;
+}
+
+body.is-mobile.theme-light {
+    --menu-background: #262b31 !important;
+}
+
+body:not(.is-mobile).theme-light {
+    --menu-background: #3f4347;
 }
 
 /* ANIMATIONS */
@@ -385,7 +392,7 @@ body.is-focused.theme-dark .workspace-split.mod-vertical.mod-root .workspace-tab
     color: var(--text-extreme);
 }
 
-body.is-phone .modal-header {
+body.is-mobile .modal-header {
     background-color: var(--background-secondary) !important;
 }
 
@@ -685,16 +692,117 @@ src: url('data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAXMAA4AAAAACOAAAAAAAA
     color: #ffffff !important;
 }
 
+/* Bases Styling  */
+
+body {
+    --metadata-property-box-shadow: none;
+}
+
+body.is-mobile .bases-toolbar-menu .modal-header {
+    background-color: var(--menu-background) !important;
+}
+
+body.is-mobile .bases-toolbar-menu {
+    --dropdown-background: var(--background-secondary-alt) !important;
+}
+
+body.is-mobile .bases-toolbar-menu.bases-toolbar-filter-menu {
+    height: calc(80vh - var(--safe-area-inset-top));
+}
+
+body.is-mobile .bases-toolbar-menu .dropdown {
+    border: 1px solid rgba(127,127,127,0.1);
+}
+
+.bases-toolbar-menu-form .input-row .input-row-content input {
+    background-color: #dbdde4;
+    border-radius: var(--radius-l);
+    order:-1 !important;
+    border: 1px solid rgba(127,127,127,0.1);
+}
+
+.bases-toolbar-menu-form .input-row .input-row-label {
+    color: var(--text-faint) !important;
+}
+
+body.is-mobile .suggestion-group[data-group="properties"] .suggestion-item.is-selected,
+body.is-mobile .bases-toolbar-menu-item ::selection,
+body.is-mobile .bases-toolbar-menu-item.is-selected,
+body.is-mobile .suggestion-group[data-group="properties"] ::selection {
+    background-color: var(--menu-background) !important;
+    color: #ffffff !important;
+    --icon-color: #ffffff !important;
+    --icon-stroke: #ffffff !important;
+}
+
+.bases-toolbar-menu-item.mod-active {
+    --icon-color: var(--color-blue) !important;
+    --icon-stroke: var(--color-blue) !important;
+}
+
+body.is-mobile .bases-query-container {
+    --interactive-normal: var(--menu-background);
+}
+
+body.is-mobile .bases-toolbar-views-menu .search-input-container, 
+body.is-mobile .bases-toolbar-properties-menu .search-input-container {
+    margin-top: 10px;
+}
+
+body.is-mobile .bases-toolbar-menu-container input[type=search] {
+    background-color: #dbdde4;
+}
+
+.bases-query-container .filter-expression,
+.bases-toolbar-sort-item,
+.bases-toolbar-menu,
+.bases-toolbar-section *,
+.bases-query-container .multi-select-container,
+.bases-query-container .filter-group *,
+.bases-sort-property,
+.bases-toolbar-section-content *,
+.bases-toolbar-section-header *,
+.bases-toolbar-menu .text-icon-button,
+.bases-toolbar-menu .bases-groupby-container *,
+.bases-toolbar-menu .input-row-label {
+    background-color: var(--menu-background);
+    color: #ffffff !important;
+    box-shadow: none;
+}
+
+.combobox-button,
+.combobox-button:hover,
+.bases-query-container .filter-expression,
+.bases-toolbar-items .metadata-property *,
+.metadata-property .bases-sort-property-container,
+.metadata-property .bases-sort-property-container:hover {
+    box-shadow: none;
+    background-color: var(--menu-background);
+    color: #ffffff !important;
+}
+
+.bases-toolbar-section *,
+.bases-query-container * {
+    border-radius: var(--radius-s);
+}
+
+.bases-embed {
+    box-shadow: var(--element-shadow);
+    border-radius: var(--radius-s);
+}
+
+/* Mobile Menus */
+
+.is-phone .menu .suggestion-group .suggestion-item:not(.is-label),
+.is-phone .menu-item:not(.is-label) {
+    background-color: var(--menu-background);
+}
+
 body.is-phone .menu-grabber {
     display: none;
 }
 
 body.is-phone .menu-scroll {
-    background-color: var(--menu-background);
-}
-
-.is-phone .menu .suggestion-group .suggestion-item:not(.is-label),
-.is-phone .menu-item:not(.is-label) {
     background-color: var(--menu-background);
 }
 
@@ -708,7 +816,7 @@ body.is-mobile .menu {
     max-width: 320px;
     border-radius: var(--radius-l);
     border: 1px solid rgba(255, 255, 255, 0.13) !important;
-    box-shadow: 0 0px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0px 36px rgba(0, 0, 0, 0.6);
     margin-bottom: 30px;
 }
 
@@ -720,7 +828,7 @@ body.is-mobile .menu-item {
     font-size: 1.1em !important;
 }
 
-body.is-mobile .menu-item-icon {
+.menu-item-icon {
     color: #4f9eff;
     order: 0 !important;
 }
@@ -788,6 +896,14 @@ body.is-tablet .prompt {
 
 .mod-settings .setting-item-control input[type="color"] {
     display: none;
+}
+
+.mod-settings .setting-item-control input {
+    border-radius: var(--radius-l);
+}
+
+.search-input-container.mod-hotkey .clickable-icon {
+    margin-right: 5px !important;
 }
 
 .prompt-input-container .clickable-icon {
@@ -904,6 +1020,10 @@ body.is-mobile.theme-dark input.prompt-input {
     inset-inline-end: calc(var(--size-4-1) + 5px);
 }
 
+.search-input-container input {
+    border-radius: var(--radius-l);
+}
+
 /* File Tree */
 
 .nav-files-container:has(.iconic-icon) {
@@ -1008,7 +1128,7 @@ body.is-mobile .nav-folder-title.is-active {
     box-shadow: none !important;
 } */
 
-body.is-mobile .mobile-tap:hover {
+body.is-mobile .mobile-tap:hover:not[settings] {
     background-color: transparent !important;
     box-shadow: none !important;
 }
@@ -1469,21 +1589,6 @@ body.is-phone {
 
 .markdown-embed-title {
   display: none;
-}
-
-.base-toolbar-sort-item,
-.bases-toolbar-menu {
-    background-color: var(--background-secondary) !important;
-}
-
-.bases-sort-property {
-    background-color: var(--background-primary) !important;
-}
-
-.bases-embed {
-    box-shadow: var(--element-shadow);
-    border-radius: var(--radius-s);
-    /* border: 0.75px solid rgba(127,127,127,0.1); */
 }
 
 .markdown-embed {
