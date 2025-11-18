@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.7
+Version 2.5.8
 @paralloid, 2025-11-18
 ───────────────────────────────────────*/
 
@@ -140,6 +140,7 @@ body.is-mobile.theme-dark {
     --code-background: #3b4048;
     --pill-background: rgb(20,20,20);
     --properties-background: #161a20;
+    --modal-background: #2b3038;
 }
 
 body.is-mobile.theme-dark .workspace-drawer.mod-right .workspace-leaf,
@@ -192,7 +193,7 @@ body.is-tablet.theme-dark.tablet-full-black {
     --checklist-done-color: #82868a;
     --color-accent-2: hsl(calc(var(--accent-h) - 0), calc(var(--accent-s) * 0.8), calc(var(--accent-l) * 1.35)) !important;
     --code-background: #f9f9f9;
-    --pill-background: rgb(244,244,244);
+    --pill-background: rgb(237,237,237);
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --properties-background: var(--background-secondary);
 }
@@ -579,24 +580,23 @@ font-family: 'Formular';
 src: url('data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAXMAA4AAAAACOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABHREVGAAAFZAAAABYAAAAWABMABkdQT1MAAAV8AAAAIAAAACBEdkx1R1NVQgAABZwAAAAvAAAAMCN+JIxPUy8yAAACDAAAAEcAAABgII84HWNtYXAAAAJUAAAAMQAAADwAOwB9Z2FzcAAABVwAAAAIAAAACP//AANnbHlmAAABRAAAACgAAAAoKX11F2hlYWQAAAGcAAAANgAAADYW4dEnaGhlYQAAAewAAAAgAAAAJA/2Cc9obXR4AAAB1AAAABgAAAAYDeYAd2xvY2EAAAGMAAAADQAAAA4APAA8bWF4cAAAAWwAAAAeAAAAIABLAEVuYW1lAAACiAAAAq4AAAXocAf8uHBvc3QAAAU4AAAAJAAAADNVXVC5AAIAdwAAA8MFtgADAAcAADMRIRElIREhdwNM/T8CNf3LBbb6SoEEtHjaY2BkYGBgY3BiYGYAASYgZmQAiTmA+QwACZIAkQAAeNpjYGAQQUAAAt4AeQAAAAABAAAAAgCDDlp/b18PPPUACwgAAAAAAM8sf4QAAAAA4KMGkP+m/lgITAc7AAAACAACAAAAAAAABDkAdwAAAAACqgAAAAAAAAI5AAAEygAAeNpjYGRgYLP8Z8l4krv//zIGBg4fBqAICmADAH24BNx42mNgZrnJOIGBlYGB1ZjlLAMDwywIzXSWIY0pC0gzIAFGBnTgwKDAoMxm+c+S8ST7XcY3CgwM08EKfzCdAlIKDEwAU4UM+QB42mNgYGBiYGBgBmIRIMkIplkYNIA0G5BmBMoqMCj//w/kg+n/T/4/AqsCAgCI4wiyAAAAeNqtUrtu1EAUvfZu3g/RISGERqJJpMReVkFityKJlBSRUEgRiXJsjx+s12ONZ9dxw5/QUFJS8QF8AZ9CS8Px7CRrIJEosOWZc1/nnrkeInrmFOTQ4nmHb4EdWoe1wC6tEbe4Ry8ptbjfyVmhHfpo8WrHv0Zv6bPF67RHPy3e6ODNTt8teuw8t3i7g3dozxlbvEtPnQBKnP4GrC/OB4sdeuQOLHZp131tcY/eu28s7ndyVuiJ+9Xi1Y5/jT653y1ep8uetnijgzc7fbfI632zeLuDd5D/w+JdetU/OZVlo7Ik1Wwv3GfDwYujQywjFjTsnDe8EOyEJxGvuIJxwK4bHqaiyvmcXWQqy0UxkR47znNmSCqmRCXUXETemVTTWc7VlUjabUHW5VpS3TGN2W3VuJUyuhaqymTBht5gMLzMBa8EGsRCMS2ZTgVbqq9EqNvUWCoTiWWhmVY8ElOuJoxrrbJgZlIKqbNQVN6/ni/Vuhz7fl3XXqBkXcTyxpMqOS4aNoOgOtOpnGlWCjXNKqM3q1ipZJoFmRaRLe+W+jkEFKHw6ZQkldSQoowS3GJNDLcwpH3sQxrQCzqiQ4tG8AXIZXSOu9/gK0jAOgFKKMJa4VM2coDItcEheAViOfAc3gv0avvl8BY0gQIP3mPYOfalkspYbaXAPscaIfMM+YqmNDN8iq7gT+6srrKHdN2n6m9NY3T/s9f4biojsLSqKtRIVLR+D5EB9kvDwo3uxQlik8twJmnW1ETum31bEwLdssZGwbImNn5tPAo9IninRtsEPg6vNnwBNC9ZCuytFZoTe//9/6Wmb4n5+Hhr83rQoBCrkdOqvoGnPUuCP12YWzSzE6rB1Z5PGs0MPMJMPUN8Od/M3IfScKbmhG1Veyd+7/5QVx96FxMozOr/AnWqLjEAAHjaY2BiAIP/DAxpDNgAGxAzMjAxMjEwM7Cx+IX6+AAAP3gCvAAAAAH//wACAAEAAAAMAAAAAAAAAAIAAQADAAUAAQAAAAEAAAAKABwAHgABREZMVAAIAAQAAAAA//8AAAAAAAB42mNgZGBg4GLQYdBjYHZx8wlhEEmuLMphkMtJLMljkGNgAcoy/P/PAAcArlkHTgA=') format('woff');
 }
 
+a.tag {
+    border: none !important;
+    text-decoration: none !important;
+    font-family: 'Formular', var(--font-text);
+    padding: 1px 0.5rem 1px 10px !important;
+}
+
 .theme-dark a.tag {
     color: #f1f1f1 !important;
     font-weight: 500;
     background-color: #2f7155 !important;
-    border: none !important;
-    text-decoration: none !important;
-    font-family: 'Formular', var(--font-text);
-    padding: 1px 0.5rem 1px 0 !important;
 }
 
 .theme-light a.tag {
     color: #1e7d58 !important;
     font-weight: 500;
     background-color: #c3e1d3 !important;
-    border: none !important;
-    text-decoration: none !important;
-    font-family: 'Formular', var(--font-text);
-    padding: 1px 0.5rem 1px 0 !important;
 }
 
 .theme-dark span.cm-hashtag {
@@ -698,12 +698,25 @@ body {
     --metadata-property-box-shadow: none;
 }
 
+.bases-toolbar-menu-container .search-input-container input[type=search] {
+    color: #ffffff;
+}
+
 body.is-mobile .bases-toolbar-menu .modal-header {
     background-color: var(--menu-background) !important;
 }
 
 body.is-mobile .bases-toolbar-menu {
     --dropdown-background: var(--background-secondary-alt) !important;
+}
+
+.view-content > .bases-view {
+    padding-left: 10px;
+}
+
+body.is-tablet .bases-toolbar-menu {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 body.is-mobile .bases-toolbar-menu.bases-toolbar-filter-menu {
@@ -874,7 +887,6 @@ body.is-mobile .menu-item {
 
 .theme-light .prompt {
     box-shadow: 0 0px 32px rgba(0, 0, 0, 0.2);
-    background-color: var(--modal-background);
 }
 
 body:not(.is-phone).theme-dark .prompt {
@@ -892,6 +904,10 @@ body.is-tablet .prompt {
     animation: zoom-in 0.25s var(--anim-motion-jumpy);
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
     width: 70vw;
+}
+
+body.is-tablet .modal-container.mod-dim .modal {
+    animation: zoom-in 0.25s var(--anim-motion-jumpy);
 }
 
 .mod-settings {
@@ -1058,17 +1074,23 @@ body.is-mobile.theme-dark input.prompt-input {
     color: var(--normal-text);
 }
 
-.nav-folder-title, .nav-file-title {
+body:not(.is-mobile) .nav-folder-title,
+body:not(.is-mobile) .nav-file-title {
     font-size: 0.9em;
 }
 
-body.is-phone {
-.nav-folder-title, .nav-file-title {
-    font-size: 1.25em;
+body.is-mobile .nav-folder-title,
+body.is-mobile .nav-file-title {
+    font-size: 1.2em;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
-    padding-left: 8px !important;
-    }
+}
+
+body.is-mobile .nav-folder-title:active,
+body.is-mobile .nav-file-title:active,
+body.is-mobile .nav-folder-title:hover,
+body.is-mobile .nav-file-title:hover {
+    transition: background-color 0.1s ease-out;
 }
 
 .nav-files-container .tree-item-self .tree-item-icon:not(.iconic-icon) {
@@ -1083,11 +1105,8 @@ body.is-phone {
 }
 
 .nav-file-title-content, .nav-folder-title-content {
-    display: inline-block;
-    overflow-wrap: anywhere;
-    overflow: hidden;
     white-space: var(--nav-item-white-space);
-    padding-right: 10px
+    padding-right: 10px;
 }
 
 .search-results-children .tree-item-flair {
@@ -1121,25 +1140,7 @@ body.smooth-animations .nav-folder-children {
     color: var(--accent-color);
 }
 
-/* Remove hover / tapping visuals */
-/* body.is-mobile .nav-file-title:hover,
-body.is-mobile .nav-folder-title:hover,
-body.is-mobile .prompt-results:hover,
-body.is-mobile .suggestion-item:hover,
-body.is-mobile .suggestion-content:hover,
-body.is-mobile .mobile-tap:hover,
-body.is-mobile .menu-item:hover,
-body.is-mobile .prompt-results:hover,
-body.is-mobile .suggestion-item:hover,
-body.is-mobile .nav-file-title:active,
-body.is-mobile .nav-folder-title:active,
-body.is-mobile .nav-file-title.is-active,
-body.is-mobile .nav-folder-title.is-active {
-    background-color: transparent !important;
-    box-shadow: none !important;
-} */
-
-body.is-mobile .mobile-tap:hover:not[settings] {
+body:not(.is-grabbing) .mobile-tap:hover:not[settings] {
     background-color: transparent !important;
     box-shadow: none !important;
 }
