@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.8
-@paralloid, 2025-11-18
+Version 2.5.9
+@paralloid, 2025-11-19
 ───────────────────────────────────────*/
 
 /* @settings
@@ -397,8 +397,31 @@ body.is-mobile .modal-header {
     background-color: var(--background-secondary) !important;
 }
 
-body.is-phone .modal.mod-settings .modal-close-button {
-    padding-right: 10px;
+body:not(.is-mobile) .modal.mod-settings .modal-close-button {
+    color: #fe5f57;
+    padding: 1px;
+    left: 10px;
+    top: 10px;
+    background-color: #fe5f57;
+    max-height: 13px;
+    max-width: 13px;
+}
+
+body:not(.is-mobile) .modal.mod-settings {
+    border-radius: var(--radius-m);
+}
+
+body:not(.is-mobile) .modal.mod-settings .modal-close-button:hover {
+    color: #720000;
+}
+
+body:not(.is-mobile) .modal.mod-settings .modal-close-button svg {
+    stroke-width: 2.5px;
+} 
+
+body:not(.is-mobile) .modal.mod-settings .vertical-tab-header {
+    margin-top: 28px;
+    background: transparent;
 }
 
 /* SOME LOVE TO TABLETS */
