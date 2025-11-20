@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.9
-@paralloid, 2025-11-19
+Version 2.5.10
+@paralloid, 2025-11-20
 ───────────────────────────────────────*/
 
 /* @settings
@@ -90,6 +90,38 @@ body {
     --metadata-divider-color: var(--background-secondary);
     --element-shadow: 0 0 20px rgba(0,0,0,0.1);
     --dropdown-background: var(--background-secondary);
+    --divider-color: rgba(0,0,0,0.05);
+}
+
+.is-translucent:not(.is-fullscreen) {
+    --divider-color: rgba(0,0,0,0.05);
+}
+
+body.is-translucent {
+  --frame-background: var(--background-primary) !important;
+  --frame-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--background-secondary) !important;
+  background: var(--background-secondary) !important;
+}
+
+body.is-translucent .app-container,
+body.is-translucent .workspace,
+body.is-translucent .mod-root,
+body.is-translucent .workspace-split.mod-root {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--background-secondary) !important;
+}
+
+body.is-translucent .titlebar,
+body.is-translucent .horizontal-main-container,
+body.is-translucent .workspace-tabs,
+body.is-translucent .workspace-tab-header-container {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--background-secondary) !important;
 }
 
 /* DESKTOP DARK MODE COLORS */
@@ -1173,6 +1205,12 @@ button.mod-cta {
     background-color: var(--interactive-accent);
     --text-color: var(--text-on-accent);
     font-weight: 600;
+    border-radius: var(--radius-l);
+}
+
+.setting-item-control select,
+button:not(.clickable-icon) {
+    border-radius: var(--radius-l);
 }
 
 body:not(.is-phone) .vertical-tab-nav-item.is-active {
