@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.10
+Version 2.5.11
 @paralloid, 2025-11-20
 ───────────────────────────────────────*/
 
@@ -454,6 +454,7 @@ body:not(.is-mobile) .modal.mod-settings .modal-close-button svg {
 body:not(.is-mobile) .modal.mod-settings .vertical-tab-header {
     margin-top: 28px;
     background: transparent;
+    backdrop-filter: blur(5px);
 }
 
 /* SOME LOVE TO TABLETS */
@@ -783,9 +784,9 @@ body.is-mobile .bases-toolbar-menu .dropdown {
 }
 
 .bases-toolbar-menu-form .input-row .input-row-content input {
-    background-color: #dbdde4;
+    /* background-color: #dbdde4; */
+    /* color: #000000; */
     border-radius: var(--radius-l);
-    order:-1 !important;
     border: 1px solid rgba(127,127,127,0.1);
 }
 
@@ -824,6 +825,7 @@ body.is-mobile .bases-toolbar-properties-menu .search-input-container {
 
 body.is-mobile .bases-toolbar-menu-container input[type=search] {
     background-color: #dbdde4;
+    color: #000000;
 }
 
 .bases-query-container .filter-expression,
@@ -841,6 +843,10 @@ body.is-mobile .bases-toolbar-menu-container input[type=search] {
     background-color: var(--menu-background);
     color: #ffffff !important;
     box-shadow: none;
+}
+
+.bases-toolbar .text-icon-button.is-active:hover {
+    color: #ffffff !important;
 }
 
 .combobox-button,
