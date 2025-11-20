@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.11
+Version 2.5.12
 @paralloid, 2025-11-20
 ───────────────────────────────────────*/
 
@@ -454,6 +454,10 @@ body:not(.is-mobile) .modal.mod-settings .modal-close-button svg {
 body:not(.is-mobile) .modal.mod-settings .vertical-tab-header {
     margin-top: 28px;
     background: transparent;
+    backdrop-filter: blur(5px);
+}
+
+body:not(.is-mobile) .modal {
     backdrop-filter: blur(5px);
 }
 
@@ -1114,10 +1118,10 @@ body.is-mobile.theme-dark input.prompt-input {
 
 /* File Tree */
 
-.nav-files-container:has(.iconic-icon) {
+/* .nav-files-container:has(.iconic-icon) {
     box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.01);
     margin-left: 15px;
-}
+} */
 
 .nav-file {
     padding-left: 0px;
@@ -1147,23 +1151,21 @@ body.is-mobile .nav-file-title {
     padding-bottom: 8px !important;
 }
 
-body.is-mobile .nav-folder-title:active,
-body.is-mobile .nav-file-title:active,
-body.is-mobile .nav-folder-title:hover,
-body.is-mobile .nav-file-title:hover {
-    transition: background-color 0.1s ease-out;
+body.is-phone .tree-item-self.is-clickable:hover {
+    background: transparent;
+}
+
+body.is-tablet .nav-folder-title:active,
+body.is-tablet .nav-file-title:active,
+body.is-tablet .nav-folder-title:hover,
+body.is-tablet .nav-file-title:hover {
+    transition: background-color 0.2s ease-out;
 }
 
 .nav-files-container .tree-item-self .tree-item-icon:not(.iconic-icon) {
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: var(--icon-opacity);
-    color: var(--icon-color);
-    width: 24px;
+    right: 2px;
 }
+
 
 .nav-file-title-content, .nav-folder-title-content {
     white-space: var(--nav-item-white-space);
@@ -1182,8 +1184,13 @@ body.is-mobile .nav-file-title:hover {
     color: var(--text-extreme) !important;
 }
 
-body.smooth-animations .nav-folder-children {
-    animation: fade-in 0.28s ease-out;
+body.smooth-animations:not(.is-mobile) .nav-folder-children {
+    animation: fade-in 0.4s ease-out;
+    border-left: none;
+}
+
+body.smooth-animations.is-mobile .nav-folder-children {
+    animation: fade-in 0.4s linear;
     border-left: none;
 }
 
@@ -1205,6 +1212,7 @@ body:not(.is-grabbing) .mobile-tap:hover:not[settings] {
     background-color: transparent !important;
     box-shadow: none !important;
 }
+
 
 /* buttons */
 button.mod-cta {
@@ -2395,9 +2403,6 @@ body.is-mobile .iconic-icon {
     stroke-width: 1.3 !important;
 }
 
-body.smooth-animations .iconic-icon {
-    animation: fade-in 0.1s;
-}
 
 .workspace-drawer-vault-actions .iconic-icon,
 .sidebar-toggle-button .iconic-icon,
