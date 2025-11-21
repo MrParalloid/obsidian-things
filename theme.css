@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.5.12
-@paralloid, 2025-11-20
+Version 2.5.13
+@paralloid, 2025-11-21
 ───────────────────────────────────────*/
 
 /* @settings
@@ -59,7 +59,7 @@ body {
     --color-cyan: #54ada4 !important;
     --color-blue: #23abf2 !important;
     --color-grey: #818893 !important;
-    --anim-motion-jumpy: cubic-bezier(.58,.53,.57,1.29);
+    --anim-motion-jumpy: cubic-bezier(.58,.53,.57,1.16);
     --font-semibold: 500;
     --font-bold: 600;
     --font-ui-small: 13px;
@@ -248,7 +248,18 @@ body:not(.is-mobile).theme-light {
 @keyframes zoom-in {
     from {
         transform: scale(0.7);
-        opacity: 0.5;
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in-bases {
+    from {
+        transform: scale(0.95);
+        opacity: 0.6;
     }
     to {
         transform: scale(1);
@@ -644,7 +655,7 @@ a.tag {
     border: none !important;
     text-decoration: none !important;
     font-family: 'Formular', var(--font-text);
-    padding: 1px 0.5rem 1px 10px !important;
+    padding: 1px 1rem 0px 10px !important;
 }
 
 .theme-dark a.tag {
@@ -768,6 +779,12 @@ body.is-mobile .bases-toolbar-menu .modal-header {
 
 body.is-mobile .bases-toolbar-menu {
     --dropdown-background: var(--background-secondary-alt) !important;
+    
+}
+
+body:not(.is-mobile) .bases-toolbar-menu {
+    animation: zoom-in-bases 0.06s ease-out;
+    transform-origin: top;
 }
 
 .view-content > .bases-view {
@@ -832,6 +849,10 @@ body.is-mobile .bases-toolbar-menu-container input[type=search] {
     color: #000000;
 }
 
+body {
+    --button-radius: var(--radius-l);
+}
+
 .bases-query-container .filter-expression,
 .bases-toolbar-sort-item,
 .bases-toolbar-menu,
@@ -849,8 +870,10 @@ body.is-mobile .bases-toolbar-menu-container input[type=search] {
     box-shadow: none;
 }
 
+
 .bases-toolbar .text-icon-button.is-active:hover {
     color: #ffffff !important;
+    border-radius: var(--radius-l) !important;
 }
 
 .combobox-button,
@@ -893,14 +916,15 @@ body.is-mobile .menu {
     color: #ffffff;
     background-color: var(--menu-background);
     position: fixed;
-    margin: auto;
     overflow: auto;
+    margin: auto;
     margin-right: 18px 18px;
+    margin-bottom: 20px;
     max-width: 320px;
+    max-height: 85%;
     border-radius: 36px;
     border: 1px solid rgba(255, 255, 255, 0.13) !important;
     box-shadow: 0 0px 36px rgba(0, 0, 0, 0.6);
-    margin-bottom: 30px;
 }
 
 body:not(.is-mobile) .menu {
@@ -924,7 +948,7 @@ body.is-mobile .menu-item {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1366px) {
     .menu {
-    animation: slide-in 0.14s var(--anim-motion-jumpy) !important;
+    animation: zoom-in 0.14s var(--anim-motion-jumpy) !important;
     transform-origin: top right !important;
     }
 }
@@ -934,6 +958,8 @@ body.is-mobile .menu-item {
     animation: zoom-in 0.05s ease-out !important;
     transform-origin: center;
     border-radius: var(--radius-m);
+    border: none;
+    box-shadow: var(--element-shadow);
 }
 
 /* Quick Switcher */
@@ -959,7 +985,7 @@ body:not(.is-phone).theme-dark .prompt {
 }
 
 body.is-phone .prompt {
-    animation: zoom-in 0.25s var(--anim-motion-jumpy);
+    animation: zoom-in 0.20s var(--anim-motion-jumpy);
     box-shadow: 0 0px 32px rgba(0, 0, 0, 0.4);
     max-width: 88vw;
     border-radius: 28px;
@@ -1737,8 +1763,8 @@ body.is-tablet .workspace-tab-header-container {
     padding: 8px 14px 10px;
     border-radius: 999px;
     background: transparent;
-    backdrop-filter: blur(5px) saturate(100%);
-    -webkit-backdrop-filter: blur(5px) saturate(100%);
+    backdrop-filter: blur(5px) saturate(140%);
+    -webkit-backdrop-filter: blur(5px) saturate(140%);
     border: 1.25px solid var(--mobile-glass-border);
     box-shadow: var(--mobile-glass-shadow);
 }
