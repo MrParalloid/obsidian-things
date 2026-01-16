@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.0
+Version 2.6.1
 @paralloid, 2026-01-16
 ───────────────────────────────────────*/
 
@@ -439,17 +439,15 @@ body.is-mobile .modal-header {
 }
 
 body:not(.is-mobile) .modal.mod-settings .modal-close-button {
-    color: #fe5f57;
-    padding: 1px;
-    left: 10px;
-    top: 10px;
-    background-color: #fe5f57;
-    max-height: 13px;
-    max-width: 13px;
+    display: none;
+}
+body:not(.is-mobile) .modal-close-button {
+    margin-top: 5px;
+    margin-right: 5px;
 }
 
 body:not(.is-mobile) .modal.mod-settings {
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-l);
 }
 
 body:not(.is-mobile) .modal.mod-settings .modal-close-button:hover {
