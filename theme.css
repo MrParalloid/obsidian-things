@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.1
-@paralloid, 2026-01-16
+Version 2.6.3
+@paralloid, 2026-01-18
 ───────────────────────────────────────*/
 
 /* @settings
@@ -84,7 +84,7 @@ body {
     --input-shadow-hover: none !important;
     --radius-s: 10px;
     --radius-m: 18px;
-    --radius-l: 30px;
+    --radius-l: 26px;
     --clickable-icon-radius: var(--radius-l);
     --modal-background: color-mix(in srgb, var(--background-secondary-alt) 95%, transparent);
     --metadata-divider-color: var(--background-secondary);
@@ -135,7 +135,7 @@ body.is-translucent .workspace-tab-header-container {
     --background-primary-alt: #2f2f2f;
     --background-primary: #262626;
     --background-secondary-alt: #1c1c1c;
-    --background-secondary: #1f1f1f;
+    --background-secondary: #1a1a1a;
     --checkbox-border-color: var(--div-color);
     --checklist-done-color: #8a919b;
     --code-background: #3B3B3B;
@@ -150,8 +150,9 @@ body.is-translucent .workspace-tab-header-container {
     --text-extreme: #ffffff;
     --text-on-accent: #1f1f1f;
     --text-muted: #c0c0c0;
-    --titlebar-background-focused: #1c1c1c;
-    --titlebar-background: #1c1c1c;
+    --titlebar-background-focused: #1a1a1a;
+    --titlebar-background: #1a1a1a;
+    --selected-item: #286bbd;
 }
 
 /* MOBILE DARK MODE COLORS */
@@ -165,7 +166,8 @@ body.is-mobile.theme-dark {
     --background-secondary: #1b2026;
     --background-secondary-alt: #2c3138;
     --titlebar-background: var(--background-primary);
-    --menu-background: #262b31 !important;
+    --menu-background: #313b4a;
+    --prompt-background: #313b4a;
     --mobile-sidebar-background: var(--background-secondary) !important;
     --div-color: rgba(60, 60, 60, 0.9);
     --background-modifier-border: rgba(0, 0, 0, 0.2);
@@ -174,6 +176,9 @@ body.is-mobile.theme-dark {
     --pill-background: rgb(20,20,20);
     --properties-background: #161a20;
     --modal-background: #2b3038;
+    --prompt-input-background: #171c21;
+    --prompt-background: #2d3038;
+    --selected-item: #3b4048;
 }
 
 body.is-mobile.theme-dark .workspace-drawer.mod-right .workspace-leaf,
@@ -183,28 +188,38 @@ body.is-mobile.theme-dark .workspace-drawer.mod-left .workspace-leaf {
 
 /* FULL BLACK BACKGROUND FOR MOBILE DEVICES */
 body.is-phone.theme-dark.mobile-full-black {
-        --background-primary: #000000;
-        --background-secondary: #000000;
-        --background-secondary-alt: #2b3138;
-        --menu-background: #262b31;
-        --titlebar-background-focused: #000000;
-        --titlebar-background: var(--background-secondary);
-        --dropdown-background: #2b3138;
-        --popup-background: #2b3138;
-        --mobile-sidebar-background: var(--background-secondary);
-        --code-background: #151719;
-        --properties-background: rgb(15,15,15);
-    }
+    --background-primary: #000000;
+    --background-secondary: #000000;
+    --background-secondary-alt: #2b3138;
+    --menu-background: #262b31;
+    --titlebar-background-focused: #000000;
+    --titlebar-background: var(--background-secondary);
+    --dropdown-background: #2b3138;
+    --popup-background: #2b3138;
+    --mobile-sidebar-background: var(--background-secondary);
+    --code-background: #151719;
+    --properties-background: rgb(15,15,15);
+    --prompt-background: #2d3038;
+    --prompt-input-background: #171c21;
+    --selected-item: #3b4048;
+}
     
 body.is-tablet.theme-dark.tablet-full-black {
-        --background-primary: #000000 !important;
-        --background-secondary: #000000 !important;
-        --background-secondary-alt: #2b3138 !important;
-        --titlebar-background-focused: #000000 !important;
-        --dropdown-background: #2b3138 !important;
-        --popup-background: #2b3138 !important;
-        --code-background: #151719;
-    }
+    --background-primary: #000000;
+    --background-secondary: #000000;
+    --background-secondary-alt: #2b3138;
+    --menu-background: #262b31;
+    --titlebar-background-focused: #000000;
+    --titlebar-background: var(--background-secondary);
+    --dropdown-background: #2b3138;
+    --popup-background: #2b3138;
+    --mobile-sidebar-background: var(--background-secondary);
+    --code-background: #151719;
+    --properties-background: rgb(15,15,15);
+    --prompt-background: #2d3038;
+    --prompt-input-background: #171c21;
+    --selected-item: #3b4048;
+}
 
 /* LIGHT MODE COLORS */
 .theme-light {
@@ -229,10 +244,14 @@ body.is-tablet.theme-dark.tablet-full-black {
     --pill-background: rgb(237,237,237);
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --properties-background: var(--background-secondary);
+    --selected-item: #c3d8ff;
 }
 
 body.is-mobile.theme-light {
-    --menu-background: #262b31 !important;
+    --menu-background: #262b31;
+    --prompt-background: var(--background-secondary);
+    --prompt-input-background: rgba(48,58,91,0.2);
+    --selected-item: #c3d8ff;
 }
 
 body:not(.is-mobile).theme-light {
@@ -248,8 +267,19 @@ body:not(.is-mobile).theme-light {
 
 @keyframes zoom-in {
     from {
-        transform: scale(0.7);
-        opacity: 0.4;
+        transform: scale(0.9);
+        opacity: 0.2;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-in-mobile {
+    from {
+        transform: scale(0.4);
+        opacity: 0.6;
     }
     to {
         transform: scale(1);
@@ -373,6 +403,7 @@ body.button-close-left .workspace-tab-header-inner-close-button {
 body.button-close-left:not(.is-mobile) .workspace-tab-header-inner-close-button {
     background-color: transparent;
     padding: 0px;
+    scale:70%;
 }
     
 body.button-close-left .workspace-tabs .workspace-tab-header-inner-icon { 
@@ -938,6 +969,21 @@ body.is-mobile .menu-item {
     font-size: 1.1em !important;
 }
 
+.is-mobile .menu-item,
+.is-mobile .menu-item.tappable {
+    border-radius: var(--radius-l);
+}
+
+.is-mobile .menu-item:active,
+.is-mobile .menu-item.tappable:active {
+    background-color: rgba(123,153,189,0.25);
+    border-radius: var(--radius-l);
+}
+
+.menu-group .menu-item:not(.is-label):after {
+    display: none !important;
+}
+
 .menu-item-icon {
     color: #4f9eff;
     order: 0 !important;
@@ -961,7 +1007,8 @@ body.is-tablet {
 
 /* Quick Switcher */
 
-.modal-bg, .suggestion-bg { opacity: 0 !important; }
+body:not(.is-mobile) .modal-bg, 
+body:not(.is-mobile) .suggestion-bg { opacity: 0 !important; }
 
 body:not(.is-mobile) .prompt {
     animation: zoom-in 0.1s ease-out;
@@ -1028,35 +1075,48 @@ body:not(.is-mobile) input.prompt-input:hover,
 body:not(.is-mobile) input.prompt-input:focus,
 body:not(.is-mobile) input.prompt-input:focus-visible,
 body:not(.is-mobile) input.prompt-input {
-    height: 36px;
+    height: 34px;
     padding: 4px 18px;
     margin: 8px;
+    background-color: rgba(128,128,128,0.3);
+    border-radius: var(--radius-l);
 }
 
 body.is-mobile .prompt-input-container {
     order: 0;
-    margin-top: 13px;
+    margin-top: 10px;
     max-width: 83vw;
 }
 
-.is-mobile .prompt-input[type="text"] {
-    padding-top: 10px;
-}
-
 body.is-mobile .prompt {
+    animation: zoom-in-mobile 0.2s ease-out;
+    transform-origin: top center;
     max-width: 88vw;
     border-radius: var(--radius-l);
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     margin-top: 25px;
+    background-color: var(--prompt-background);
 }
 
-body:not(.is-mobile) .theme-light .prompt-input::placeholder {
-    color: #8b9099 !important; 
-    }
+body.is-mobile input.prompt-input:hover,
+body.is-mobile input.prompt-input:focus,
+body.is-mobile input.prompt-input:focus-visible,
+body.is-mobile input.prompt-input {
+    background-color: var(--prompt-input-background);
+    border-radius: var(--radius-l);
+    height: 42px;
+    padding-left: 20px;
+}
 
-body:not(.is-mobile) .theme-dark .prompt-input::placeholder {
-    color: #a8a8a8 !important;
-    }
+.theme-light input.prompt-input::placeholder {
+    color: #8b9099;
+    font-weight: 550;
+}
+
+.theme-dark input.prompt-input::placeholder {
+    color: rgba(160,160,160,0.7);
+    font-weight: 550;
+}
 
 .suggestion-item.is-selected {
     color: var(--text-normal) !important;
@@ -1064,13 +1124,10 @@ body:not(.is-mobile) .theme-dark .prompt-input::placeholder {
     border: none;
     border-radius: var(--radius-l);
 }
-.theme-dark .suggestion-item.is-selected {
-    background-color: #286bbd;
-  }
 
-.theme-light .suggestion-item.is-selected {
-    background-color: #c3d8ff;
-}
+.suggestion-item.is-selected {
+    background-color: var(--selected-item);
+  }
 
 .suggestion-item {
     align-items: center !important;
@@ -1129,21 +1186,6 @@ body.is-tablet .nav-file-title:hover {
 
 .nav-files-container .tree-item-self .tree-item-icon:not(.iconic-icon) {
     right: 2px;
-    opacity: 0;
-}
-
-.nav-files-container .tree-item-self:hover .tree-item-icon:not(.iconic-icon) {
-    right: 2px;
-    opacity: 1;
-}
-
-.nav-folder:not(.is-collapsed) .tree-item-icon:not(.iconic-icon) {
-    right: 2px;
-    opacity: 1;
-}
-
-.nav-folder.is-collapsed .tree-item-icon:not(.iconic-icon) {
-    opacity: 0;
 }
 
 .nav-file-title-content, .nav-folder-title-content {
@@ -1191,11 +1233,11 @@ body.smooth-animations.is-mobile .nav-folder-children {
     color: var(--accent-color);
 }
 
-body:not(.is-grabbing) .mobile-tap:hover:not[settings] {
+
+body:not(.is-grabbing) .mobile-tap:not(button):not(.dropdown):hover {
     background-color: transparent !important;
     box-shadow: none !important;
 }
-
 
 /* buttons */
 button.mod-cta {
@@ -1721,6 +1763,11 @@ body.is-tablet .workspace-tab-header-container {
     background-image: none;
 }
 
+.theme-dark .mod-raised {
+    background-color: #303a47 !important;
+    background-image: none;
+}
+
 .mobile-navbar-action-quick-switcher {
     display: none;
 }
@@ -2167,7 +2214,7 @@ body {
 
 @media (pointer: fine) {
   .status-bar {
-    position: fixed !important;
+    position: fixed;
     left: 50%;
     bottom: 10px;
     transform: translateX(-50%);
@@ -2185,7 +2232,7 @@ body {
     border: 1px solid var(--statusbar-glass-border);
     box-shadow: var(--statusbar-glass-shadow);
     border-top: none !important;
-    z-index: calc(var(--layer-status-bar, 40) + 10);
+    z-index: var(--layer-status-bar);
     white-space: nowrap;
     overflow: hidden;
     transition:
