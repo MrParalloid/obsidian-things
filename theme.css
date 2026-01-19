@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.3
-@paralloid, 2026-01-18
+Version 2.6.4
+@paralloid, 2026-01-19
 ───────────────────────────────────────*/
 
 /* @settings
@@ -91,6 +91,7 @@ body {
     --element-shadow: 0 0 20px rgba(0,0,0,0.1);
     --divider-color: rgba(0,0,0,0.05);
     --nav-item-background-hover: none;
+    --setting-items-radius: var(--radius-l);
 }
 
 .is-translucent:not(.is-fullscreen) {
@@ -947,13 +948,13 @@ body.is-mobile .menu {
     position: fixed;
     overflow: auto;
     margin: auto;
-    margin-right: 18px 18px;
     margin-bottom: 20px;
     max-width: 320px;
     max-height: 85%;
-    border-radius: 36px;
+    border-radius: var(--radius-l);
     border: 1px solid rgba(255, 255, 255, 0.13) !important;
-    box-shadow: 0 0px 36px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0px 36px rgba(0, 0, 0, 0.3);
+    padding: 5px;
 }
 
 body:not(.is-mobile) .menu {
@@ -1035,7 +1036,7 @@ body:not(.is-mobile).theme-light .prompt {
 
 .mod-settings {
     display: flex;
-    animation: zoom-in 0.05s ease-out;
+    animation: zoom-in 100ms ease-out;
     transform-origin: center;
 }
 
@@ -1085,8 +1086,9 @@ body:not(.is-mobile) input.prompt-input {
 
 body.is-mobile .prompt-input-container {
     order: 0;
-    margin-top: 10px;
-    max-width: 83vw;
+    margin-top: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 body.is-mobile .prompt {
@@ -1234,8 +1236,7 @@ body.smooth-animations.is-mobile .nav-folder-children {
     color: var(--accent-color);
 }
 
-
-body:not(.is-grabbing) .mobile-tap:not(button):not(.dropdown):hover {
+body:not(.is-grabbing) .mobile-tap:not(button):not(.dropdown):not(.workspace-tab-header):not(.prompt):not(.suggestion-item):not(.modal-bg):hover {
     background-color: transparent !important;
     box-shadow: none !important;
 }
@@ -1395,67 +1396,71 @@ mark .external-link,
 /* ====================== */
 /* ✨ Headings */
 /* ====================== */
-h1, .markdown-preview-view h1,
-.HyperMD-header-1 {
+body.view-content h1,
+body.view-content .markdown-preview-view h1,
+body.view-content .HyperMD-header-1 {
     font-size: 1.75em;
-    font-weight: 600 !important;
-    margin-top: 0px !important;
-    margin-bottom: 0.85em !important;
-    padding-top: 30px !important;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 0.85em;
+    padding-top: 30px;
 }
 
-h2, .markdown-preview-view h2,
-.HyperMD-header-2 {
+body.view-content h2,
+body.view-content .markdown-preview-view h2,
+body.view-content .HyperMD-header-2 {
     font-size: 1.5em;
-    font-weight: 600 !important;
-    margin-top: 1em !important;
-    margin-bottom: 1em !important;
-    padding-top: 0.33em !important;
-    padding-bottom: 0.33em !important;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 0.33em;
+    padding-bottom: 0.33em;
     border-bottom: 1px solid var(--div-color); 
 }
 
-h3, .markdown-preview-view h3,
-.HyperMD-header-3 {
+body.view-content h3,
+body.view-content .markdown-preview-view h3,
+body.view-content .HyperMD-header-3 {
     font-size: 1.25em;
-    font-weight: 600 !important;
-    margin-top: 0px !important;
-    margin-bottom: 1em !important;
-    padding-top: 1em !important;
-    padding-bottom: 0.33em !important;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-bottom: 0.33em;
 }
 
-h4, .markdown-preview-view h4,
-.HyperMD-header-4 {
-    padding-bottom: 0px !important;
-    font-weight: 650 !important;
-    font-size: 1em !important;
-    margin-top: 0px !important;
-    margin-bottom: 0em !important;
-    padding-top: 0px !important;
+body.view-content h4,
+body.view-content .markdown-preview-view h4,
+body.view-content .HyperMD-header-4 {
+    padding-bottom: 0px;
+    font-weight: 650;
+    font-size: 1em;
+    margin-top: 0px;
+    margin-bottom: 0em;
+    padding-top: 0px;
     border-bottom: 1px solid var(--div-color); 
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 0.25rem;
 }
 
 h5, .markdown-preview-view h5,
 .HyperMD-header-5 {
-    padding-bottom: 0px !important;
-    font-weight: 400 !important;
-    font-size: 1em !important;
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    padding-top: 0px !important;
+    padding-bottom: 0px;
+    font-weight: 400;
+    font-size: 1em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
 }
 
 h6, .markdown-preview-view h6,
 .HyperMD-header-6 {
-    padding-bottom: 0px !important;
-    font-weight: 400 !important;
-    margin-top: 0px !important;
-    font-size: 1em !important;
+    padding-bottom: 0px;
+    font-weight: 400;
+    margin-top: 0px;
+    font-size: 1em;
     color: var(--color-accent);
-    margin-bottom: 0px !important;
-    padding-top: 0px !important;
+    margin-bottom: 0px;
+    padding-top: 0px;
 }
 
 @media print {
@@ -1487,6 +1492,7 @@ h6, .markdown-preview-view h6,
 .collapse-indicator {
     transition: opacity 0.2s ease;
 }
+
 /* ================================= */
 /* Paragraphs, checkboxes, and Lists */
 /* ================================= */
