@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.5
+Version 2.6.6
 @paralloid, 2026-01-20
 ───────────────────────────────────────*/
 
@@ -67,6 +67,7 @@ body {
     --blockquote-background-color: rgba(128,128,128,0.07);
     --tab-stacked-pane-width: 1200px;
     --interactive-accent-hover: var(--color-accent-2) !important;
+    --interactive-hover: rgba(100,115,120,0.1) !important;
     --p-spacing: 1.5rem;
     --p-spacing-empty: 0rem;
     --list-spacing: 0em;
@@ -1354,7 +1355,6 @@ a:focus,
     color: #ffffff !important;
 }
 
-/* Highlighted links (Make them stand out) */
 mark a, 
 mark .internal-link, 
 mark .external-link, 
@@ -1379,10 +1379,20 @@ mark .external-link,
     display: none;
 }
 
+/* Better Search Views */
+
+.better-search-views-file-match * {
+    font-size: var(--font-ui-small);
+}
+
+.better-search-views-file-match:hover {
+    background-color: rgba(100,115,120,0.05) !important;
+}
 
 /* ====================== */
-/* ✨ Headings */
+/* Headings */
 /* ====================== */
+
 .cm-editor h1,
 .markdown-rendered h1,
 .markdown-preview-view h1,
@@ -1391,7 +1401,7 @@ mark .external-link,
     font-weight: 600;
     margin-top: 0px;
     margin-bottom: 0.85em;
-    padding-top: 30px;
+    padding-top: 0.5rem;
 }
 
 .cm-editor h2,
@@ -1691,6 +1701,48 @@ body.dataview-no-wrap .table-view-table > tbody > tr > td  {
     word-break: normal;
 }
 
+/* =========================
+   Liquid glass centered status bar
+   ========================= */
+
+body {
+  --statusbar-glass-bg: color-mix(in srgb, var(--background-primary) 35%, transparent);
+  --statusbar-glass-border: color-mix(in srgb, var(--background-modifier-border) 45%, transparent);
+  --statusbar-glass-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (pointer: fine) {
+  .status-bar {
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    width: fit-content;
+    max-width: min(60rem, 90vw);
+    padding: 4px 10px;
+    border-radius: var(--radius-l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--statusbar-glass-bg);
+    backdrop-filter: blur(4px) saturate(160%);
+    -webkit-backdrop-filter: blur(4px) saturate(160%);
+    border: 1px solid var(--statusbar-glass-border);
+    box-shadow: var(--statusbar-glass-shadow);
+    border-top: none !important;
+    z-index: var(--layer-status-bar);
+    white-space: nowrap;
+    overflow: hidden;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      padding 160ms ease,
+      background-color 160ms ease,
+      border-color 160ms ease;
+  }
+}
+
 /* ================== */
 /*  📌 Other Changes  */
 /* ================== */
@@ -1743,16 +1795,6 @@ body.is-tablet .workspace-tab-header-container {
     padding-bottom: 0px;
 }
 
-/* @media (pointer: coarse) {
-  body {
-    --mobile-glass-bg: color-mix(in srgb, var(--background-secondary-alt) 80%, transparent);
-    --mobile-glass-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-    --mobile-icon-color: var(--text-on-accent, #ffffff);
-    --mobile-accent-start: var(--accent-color, #1dd1ff);
-    --mobile-accent-end: #7e5bff;
-  }
-} */
-
 .is-mobile .mod-raised {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     max-height: 11vw;
@@ -1774,7 +1816,7 @@ body.is-tablet .workspace-tab-header-container {
 }
 
 .theme-light .mod-raised {
-    opacity: rgba(120,120,120,0.5) !important;
+    background-color: rgba(250,250,250,0.5);
     background-image: none;
 }
 
@@ -1786,51 +1828,26 @@ body.is-tablet .workspace-tab-header-container {
     display: none;
 }
 
-/* .mobile-navbar {
-    position: fixed;
-    left: 50%;
-    bottom: 22px;
-    transform: translateX(-50%);
-    width: min(400px, 85vw);
-    padding: 8px 14px 10px;
-    border-radius: 999px;
-    background: transparent;
-    backdrop-filter: blur(5px) saturate(140%);
-    -webkit-backdrop-filter: blur(5px) saturate(140%);
-    border: 1.25px solid var(--mobile-glass-border);
-    box-shadow: var(--mobile-glass-shadow);
-} */
+/* Canvas */
 
-/* .mobile-navbar-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+.canvas-card-menu {
+    border-radius: var(--radius-l);
+    margin-bottom: 3vw;
+    padding: 5px;
+    box-shadow: var(--statusbar-glass-shadow);
+    background-color: var(--background-secondary-alt);
 }
 
-.mobile-navbar-action {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  } */
-
-/* .mobile-navbar-action .clickable-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 120ms ease-out;
-    color: var(--text-muted);
-    padding: 0px;
+.canvas-menu {
+    border-radius: var(--radius-l);
+    border: none;
+    box-shadow: var(--statusbar-glass-shadow);
+    background-color: var(--background-secondary-alt);
 }
 
-.mobile-navbar-action .clickable-icon:active {
-    transform: scale(1.3);
-    transition: transform 100ms ease-out;
-} */
+.canvas-menu .clickable-icon {
+    color: var(--text-strong);
+}
 
 /* IMAGE VIEWERS */
 
@@ -2212,47 +2229,6 @@ body:not(.tasks) li[data-task='D'].task-list-item.is-checked {
   color: var(--text-normal);
 }
 
-/* =========================
-   Liquid glass centered status bar
-   ========================= */
-
-body {
-  --statusbar-glass-bg: color-mix(in srgb, var(--background-primary) 35%, transparent);
-  --statusbar-glass-border: color-mix(in srgb, var(--background-modifier-border) 45%, transparent);
-  --statusbar-glass-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-@media (pointer: fine) {
-  .status-bar {
-    position: fixed;
-    left: 50%;
-    bottom: 10px;
-    transform: translateX(-50%);
-    width: fit-content;
-    max-width: min(60rem, 90vw);
-    padding: 4px 10px;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--statusbar-glass-bg);
-    backdrop-filter: blur(4px) saturate(160%);
-    -webkit-backdrop-filter: blur(4px) saturate(160%);
-    border: 1px solid var(--statusbar-glass-border);
-    box-shadow: var(--statusbar-glass-shadow);
-    border-top: none !important;
-    z-index: var(--layer-status-bar);
-    white-space: nowrap;
-    overflow: hidden;
-    transition:
-      transform 160ms ease,
-      box-shadow 160ms ease,
-      padding 160ms ease,
-      background-color 160ms ease,
-      border-color 160ms ease;
-  }
-}
 /* DAILY NOTE CALENDAR ADJUSTMENTS */
 
 .dnc table {
