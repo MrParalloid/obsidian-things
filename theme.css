@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.6
+Version 2.6.7
 @paralloid, 2026-01-20
 ───────────────────────────────────────*/
 
@@ -1401,7 +1401,7 @@ mark .external-link,
     font-weight: 600;
     margin-top: 0px;
     margin-bottom: 0.85em;
-    padding-top: 0.5rem;
+    padding-top: 0.2rem;
 }
 
 .cm-editor h2,
@@ -1707,19 +1707,23 @@ body.dataview-no-wrap .table-view-table > tbody > tr > td  {
 
 body {
   --statusbar-glass-bg: color-mix(in srgb, var(--background-primary) 35%, transparent);
-  --statusbar-glass-border: color-mix(in srgb, var(--background-modifier-border) 45%, transparent);
   --statusbar-glass-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
+.theme-light {
+    --statusbar-glass-border: rgba(250,250,250,0.5);
+}
 
-@media (pointer: fine) {
-  .status-bar {
+.theme-dark {
+    --statusbar-glass-border: rgba(100,100,100,0.1);
+}
+
+.status-bar {
     position: fixed;
-    left: 50%;
+    right: 46%;
     bottom: 10px;
-    transform: translateX(-50%);
     width: fit-content;
     max-width: min(60rem, 90vw);
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: var(--radius-l);
     display: flex;
     align-items: center;
@@ -1728,19 +1732,13 @@ body {
     background: var(--statusbar-glass-bg);
     backdrop-filter: blur(4px) saturate(160%);
     -webkit-backdrop-filter: blur(4px) saturate(160%);
-    border: 1px solid var(--statusbar-glass-border);
+    border: 1.25px solid var(--statusbar-glass-border);
     box-shadow: var(--statusbar-glass-shadow);
-    border-top: none !important;
+    /* border-right: none !important; */
+    /* border-bottom: none !important; */
     z-index: var(--layer-status-bar);
     white-space: nowrap;
     overflow: hidden;
-    transition:
-      transform 160ms ease,
-      box-shadow 160ms ease,
-      padding 160ms ease,
-      background-color 160ms ease,
-      border-color 160ms ease;
-  }
 }
 
 /* ================== */
@@ -1795,7 +1793,7 @@ body.is-tablet .workspace-tab-header-container {
     padding-bottom: 0px;
 }
 
-.is-mobile .mod-raised {
+.is-mobile .mod-raised:not(.canvas-control-group) {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     max-height: 11vw;
     /* background: transparent; */
@@ -1849,12 +1847,16 @@ body.is-tablet .workspace-tab-header-container {
     color: var(--text-strong);
 }
 
+.canvas-control-item {
+    background-color: var(--background-secondary-alt);
+}
+
 /* IMAGE VIEWERS */
 
 body.is-mobile .mobile-image-viewer {
     -webkit-backdrop-filter:blur(10px);
     background-color:var(--workspace-background-translucent);
-    animation: zoom-in 0.2s linear
+    animation: zoom-in 0.2s linear;
 }
 
 body.is-mobile .mobile-image-viewer img{ border-radius:0 }
