@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.9
+Version 2.6.10
 @paralloid, 2026-01-21
 ───────────────────────────────────────*/
 
@@ -1183,7 +1183,6 @@ body.is-tablet .nav-file-title:hover {
 
 body:not(.is-mobile) .nav-files-container .tree-item:not(.is-collapsed) .nav-file {
     isolation: isolate;
-    will-change: opacity;
     animation: fade-in 0.3s linear;
 }
 
@@ -1193,7 +1192,6 @@ body:not(.is-mobile) .nav-files-container .tree-item:not(.is-collapsed) .nav-fil
 
 .is-mobile .nav-files-container .tree-item:not(.is-collapsed) .nav-file {
     isolation: isolate;
-    will-change: opacity;
     animation: fade-in 0.4s ease-out;
 }
 
