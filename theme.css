@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.10
-@paralloid, 2026-01-21
+Version 2.6.11
+@paralloid, 2026-01-22
 ───────────────────────────────────────*/
 
 /* @settings
@@ -1181,7 +1181,7 @@ body.is-tablet .nav-file-title:hover {
     right: 2px;
 }
 
-body:not(.is-mobile) .nav-files-container .tree-item:not(.is-collapsed) .nav-file {
+body:not(.is-mobile) .nav-files-container .tree-item:not(.is-collapsed) .nav-folder-children {
     isolation: isolate;
     animation: fade-in 0.3s linear;
 }
@@ -1709,7 +1709,7 @@ body.dataview-no-wrap .table-view-table > tbody > tr > td  {
 
 body {
   --statusbar-glass-bg: color-mix(in srgb, var(--background-primary) 35%, transparent);
-  --statusbar-glass-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  --statusbar-glass-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .theme-light {
@@ -1726,15 +1726,15 @@ body {
     bottom: 10px;
     width: fit-content;
     max-width: min(60rem, 90vw);
-    padding: 6px 12px;
+    padding: 4px 12px;
     border-radius: var(--radius-l);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     background: var(--statusbar-glass-bg);
-    backdrop-filter: blur(4px) saturate(160%);
-    -webkit-backdrop-filter: blur(4px) saturate(160%);
+    backdrop-filter: blur(2px) saturate(160%);
+    -webkit-backdrop-filter: blur(2px) saturate(160%);
     border: 1.25px solid var(--statusbar-glass-border);
     box-shadow: var(--statusbar-glass-shadow);
     z-index: var(--layer-status-bar);
@@ -1798,8 +1798,8 @@ body.is-tablet .workspace-tab-header-container {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     max-height: 11vw;
     /* background: transparent; */
-    backdrop-filter: blur(3px) saturate(140%);
-    -webkit-backdrop-filter: blur(3px) saturate(140%);
+    backdrop-filter: blur(2px) saturate(140%);
+    -webkit-backdrop-filter: blur(2px) saturate(140%);
     border: 2px solid var(--statusbar-glass-border);
 }
 
