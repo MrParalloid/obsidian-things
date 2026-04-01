@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.11
-@paralloid, 2026-01-22
+Version 2.6.12
+@paralloid, 2026-04-01
 ───────────────────────────────────────*/
 
 /* @settings
@@ -80,7 +80,7 @@ body {
     --input-shadow-hover: none !important;
     --radius-s: 10px;
     --radius-m: 18px;
-    --radius-l: 26px;
+    --radius-l: 28px;
     --clickable-icon-radius: var(--radius-l);
     --modal-background: color-mix(in srgb, var(--background-secondary-alt) 95%, transparent);
     --metadata-divider-color: var(--background-secondary);
@@ -144,6 +144,7 @@ body.is-translucent .workspace-tab-header-container {
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 15%, transparent);
     --pill-background: rgb(50,50,50);
     --properties-background: rgb(35,35,35);
+    --prompt-input-background: #474747;
     --selected-item: #286bbd;
     --tag-color: #f1f1f1;
     --text-extreme: #ffffff;
@@ -164,8 +165,8 @@ body.is-mobile.theme-dark {
     --background-secondary: #1b2026;
     --background-secondary-alt: #2c3138;
     --titlebar-background: var(--background-primary);
-    --menu-background: #313b4a;
-    --prompt-background: #313b4a;
+    --menu-background: #272d33;
+    --prompt-background: #272d33;
     --mobile-sidebar-background: var(--background-secondary) !important;
     --div-color: rgba(60, 60, 60, 0.9);
     --background-modifier-border: rgba(0, 0, 0, 0.2);
@@ -238,6 +239,7 @@ body.is-tablet.theme-dark.tablet-full-black {
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --pill-background: rgb(237,237,237);
     --properties-background: var(--background-secondary);
+    --prompt-input-background: #dee0e5;
     --selected-item: #c3d8ff;
     --tag-color: #1e7d58;
     --text-extreme: #000000;
@@ -255,6 +257,10 @@ body.is-mobile.theme-light {
 
 body:not(.is-mobile).theme-light {
     --menu-background: #3f4347;
+}
+
+.vertical-tab-content {
+    background-color: var(--background-secondary-alt);
 }
 
 /* ANIMATIONS */
@@ -1069,8 +1075,8 @@ body:not(.is-mobile) input.prompt-input:focus-visible,
 body:not(.is-mobile) input.prompt-input {
     height: 34px;
     padding: 4px 18px;
-    margin: 8px;
-    background-color: rgba(128,128,128,0.3);
+    margin: 8px 9px 8px 9px;
+    background-color: var(--prompt-input-background);
     border-radius: var(--radius-l);
 }
 
@@ -1703,11 +1709,40 @@ body.dataview-no-wrap .table-view-table > tbody > tr > td  {
     word-break: normal;
 }
 
+/* Liquid Glass Stuff */
+
+body {
+    --liquid-shadow-light: 
+        inset 1.5px 1.5px 1px 0 rgba(255, 255, 255, 0.7),
+        inset -1.5px -1.5px 1px 0 rgba(255, 255, 255, 0.5),
+        0 3px 14px rgba(0, 0, 0, 0.09);
+
+    --liquid-shadow-dark: 
+        inset 1.25px 1px 0.5px -0.5px rgba(180, 180, 180, 0.1),
+        inset -1.25px -1px 0.5px -0.5px rgba(180, 180, 180, 0.1),
+        0 3px 14px rgba(0, 0, 0, 0.03);
+}
+
+.theme-light { --glass-edge: var(--liquid-shadow-light); }
+.theme-dark  { --glass-edge: var(--liquid-shadow-dark); }
+
+.status-bar,
+.prompt,
+.is-mobile .mobile-navbar,
+.input-button,
+.mod-raised,
+.document-replace-input,
+.pdf-page-input,
+.search-input-container input {
+    border: none !important;
+    box-shadow: var(--glass-edge) !important;
+}
+
 /* =========================
    Liquid glass centered status bar
    ========================= */
 
-body {
+/* body {
   --statusbar-glass-bg: color-mix(in srgb, var(--background-primary) 35%, transparent);
   --statusbar-glass-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -1718,7 +1753,7 @@ body {
 
 .theme-dark {
     --statusbar-glass-border: rgba(100,100,100,0.1);
-}
+}*/
 
 .status-bar {
     position: fixed;
@@ -1740,7 +1775,7 @@ body {
     z-index: var(--layer-status-bar);
     white-space: nowrap;
     overflow: hidden;
-}
+} 
 
 /* ================== */
 /*  📌 Other Changes  */
