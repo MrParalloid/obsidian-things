@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.12
+Version 2.6.13
 @paralloid, 2026-04-01
 ───────────────────────────────────────*/
 
@@ -46,6 +46,7 @@ body {
     --tab-radius-active: 12px 12px 0px 0px;
     --background-modifier-hover: rgba(var(--mono-rgb-100), 0.04);
     --interactive-accent: #67acff;
+    --code-function: #cd8c00;
     --color-yellow-rgb: rgb(255, 213, 0);
     --color-yellow: #ffd500 !important;
     --color-red: #f83366 !important;
@@ -78,6 +79,10 @@ body {
     --interactive-normal: var(--background-secondary) !important;
     --input-shadow: none !important;
     --input-shadow-hover: none !important;
+    --link-color: var(--text-accent);
+    --link-color-hover: var(--text-accent-hover);
+    --link-decoration: none;
+    --link-decoration-hover: none;
     --radius-s: 10px;
     --radius-m: 18px;
     --radius-l: 28px;
@@ -1292,50 +1297,6 @@ body.is-phone {
 
 body.is-mobile .empty-state-action {
     background: transparent;
-}
-
-/* Link Enhancements */
-.internal-link,
-.external-link,
-.cm-link,
-.cm-url,
-.cm-s-obsidian span.cm-hmd-internal-link,
-.cm-s-obsidian span.cm-hmd-external-link,
-.cm-s-obsidian .cm-link,
-.cm-s-obsidian a {
-    color: var(--accent-color) !important;
-    text-decoration: none !important;
-    caret-color: var(--accent-color) !important;
-}
-
-.external-link {
-    color: var(--link-external-color);
-    text-decoration-line: var(--link-external-decoration);
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-size: 0.625em;
-    padding-inline-end: 0.95em;
-    background-position-y: 0.3em;
-    cursor: pointer;
-    filter: var(--link-external-filter);
-    transition: opacity 0.25s ease-in-out;
-}
-
-a:hover, 
-.internal-link:hover, 
-.external-link:hover, 
-.cm-link:hover, 
-.cm-url:hover,
-.cm-s-obsidian span.cm-hmd-internal-link:hover,
-.cm-s-obsidian span.cm-hmd-external-link:hover {
-    text-decoration: none !important;
-}
-
-a:focus, 
-.internal-link:focus, 
-.external-link:focus {
-    outline: none !important;
-    text-decoration: none !important;
 }
 
 .theme-dark ::selection {
