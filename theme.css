@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.13
-@paralloid, 2026-04-01
+Version 2.6.14
+@paralloid, 2026-04-02
 ───────────────────────────────────────*/
 
 /* @settings
@@ -34,7 +34,7 @@ settings:
         id: button-close-left
         title: Tab close button on the left
         type: class-toggle
-        default: false
+        default: true
 */
 
 @charset "UTF-8";
@@ -48,7 +48,7 @@ body {
     --interactive-accent: #67acff;
     --code-function: #cd8c00;
     --color-yellow-rgb: rgb(255, 213, 0);
-    --color-yellow: #ffd500 !important;
+    --color-yellow: #fdd31b !important;
     --color-red: #f83366 !important;
     --color-red-trans: rgba(255, 83, 131, 0.3);
     --color-cyan-rgb: rgb(84, 173, 164);
@@ -410,7 +410,7 @@ body.button-close-left .workspace-tab-header-inner-close-button {
     order: -1;
 }
 
-body.button-close-left:not(.is-mobile) .workspace-tab-header-inner-close-button {
+body:not(.is-mobile) .workspace-tab-header-inner-close-button {
     background-color: transparent;
     padding: 0px;
     scale:70%;
@@ -443,10 +443,11 @@ body:not(.is-mobile) body.button-close-left .workspace-tab-header-inner-close-bu
     padding-inline-start: 4px;
 }
 
-.workspace-tabs:not(.mod-stacked) .workspace-tab-header:hover .workspace-tab-header-inner-close-button {
+/* body:not(.button-close-left) .workspace-tabs:not(.mod-stacked) .workspace-tab-header:hover .workspace-tab-header-inner-close-button,
+body:not(.button-close-left) .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active {
     pointer-events: all;
     animation: fade-in 0.4s
-}
+} */
 
 body.button-close-left .workspace-tabs:not(.mod-stacked) .workspace-tab-header:hover .workspace-tab-header-inner-close-button,
 body.button-close-left .workspace-tabs:not(.mod-stacked) .workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
@@ -462,8 +463,9 @@ body.button-close-left .workspace-tab-header-inner-title {
 }
 
 body.is-focused.theme-light .workspace-split.mod-vertical.mod-root .workspace-tab-header.is-active {
-    box-shadow: 0 0px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
     color: var(--text-extreme);
+    transition: box-shadow 0.15s ease-out;
 }
 
 .workspace-tab-header-container .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner {
@@ -473,6 +475,7 @@ body.is-focused.theme-light .workspace-split.mod-vertical.mod-root .workspace-ta
 body.is-focused.theme-dark .workspace-split.mod-vertical.mod-root .workspace-tab-header.is-active {
     box-shadow: 0 0px 12px rgba(0, 0, 0, 0.3);
     color: var(--text-extreme);
+    transition: box-shadow 0.15s ease-out;
 }
 
 body.is-mobile .modal-header {
@@ -1688,7 +1691,6 @@ body {
 .theme-dark  { --glass-edge: var(--liquid-shadow-dark); }
 
 .status-bar,
-.prompt,
 .is-mobile .mobile-navbar,
 .input-button,
 .mod-raised,
@@ -1718,7 +1720,8 @@ body {
 
 .status-bar {
     position: fixed;
-    right: 46%;
+    left: 50%;
+    transform: translatex(-50%);
     bottom: 10px;
     width: fit-content;
     max-width: min(60rem, 90vw);
@@ -1728,15 +1731,11 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: var(--statusbar-glass-bg);
-    backdrop-filter: blur(2px) saturate(160%);
-    -webkit-backdrop-filter: blur(2px) saturate(160%);
-    border: 1.25px solid var(--statusbar-glass-border);
-    box-shadow: var(--statusbar-glass-shadow);
+    background: var(--background-secondary-alt);
     z-index: var(--layer-status-bar);
     white-space: nowrap;
     overflow: hidden;
-} 
+}
 
 /* ================== */
 /*  📌 Other Changes  */
@@ -1799,15 +1798,9 @@ body.is-tablet .workspace-tab-header-container {
     border: 2px solid var(--statusbar-glass-border);
 }
 
-.mobile-full-black.theme-dark .mod-raised {
-    /* background-color: #262b31 !important; */
-    background-color: rgba(38,43,49,0.7) !important;
-    background-image: none;
-}
 
 .theme-dark .mod-raised {
-    /* background-color: #303a47 !important; */
-    background-color: rgba(48,58,71,0.8) !important;
+    background-color: rgba(48,58,71,0.95) !important;
     background-image: none;
 }
 
