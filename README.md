@@ -50,6 +50,8 @@ It is recommended to be used with these plugins:
 
 Give it a try!
 
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Share Some Love', '#eb6d46', 'G2G21XAEJ9');kofiwidget2.draw();</script> 
+
 ## Screenshots
 ![Light Theme](https://github.com/MrParalloid/obsidian-things/blob/main/Things-Light.png)
 ![Dark Theme](https://github.com/MrParalloid/obsidian-things/blob/main/Things-Dark.png)
