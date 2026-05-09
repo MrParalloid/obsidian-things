@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.15
-@paralloid, 2026-04-30
+Version 2.6.16
+@paralloid, 2026-05-09
 ───────────────────────────────────────*/
 
 /* @settings
@@ -12,12 +12,12 @@ settings:
 
     -
         id: mobile-full-black
-        title: Use fully black background on Phones
+        title: Black background on Phones
         type: class-toggle
         default: true
     -
         id: tablet-full-black
-        title: Use fully black background on Tablets
+        title: Black background on Tablets
         type: class-toggle
         default: true
     - 
@@ -33,6 +33,11 @@ settings:
     -
         id: button-close-left
         title: Tab close button on the left
+        type: class-toggle
+        default: true
+    -
+        id: strong-stroke
+        title: Thicker icon strokes
         type: class-toggle
         default: true
 */
@@ -69,8 +74,6 @@ body {
     --list-spacing: 0em;
     --checkbox-color: var(--color-accent);
     --icon-color: var(--color-grey) !important;
-    --icon-stroke: 1.5px !important;
-    --icon-l-stroke-width: 1.5px !important;
     --embed-padding: 0px;
     --tab-container-background: var(--background-secondary);
     --titlebar-background-focused: var(--titlebar-background);
@@ -125,6 +128,14 @@ body.is-translucent .workspace-tab-header-container {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   background-color: var(--background-secondary) !important;
+}
+
+.strong-stroke {
+    --icon-stroke: 1.9px !important;
+    --icon-s-stroke-width: 1.9px !important;
+    --icon-m-stroke-width: 1.9px !important;
+    --icon-l-stroke-width: 1.9px !important;
+    --icon-xl-stroke-width: 1.9px !important;
 }
 
 /* DESKTOP DARK MODE COLORS */
@@ -248,9 +259,14 @@ body.is-tablet.theme-dark.tablet-full-black {
     --selected-item: #c3d8ff;
     --tag-color: #1e7d58;
     --text-extreme: #000000;
-    --text-muted: #3f3f3f;
-    --text-normal: #2d2e34;
+    --text-muted: #494949;
+    --text-faint: #b0b4b9;
+    --text-normal: #373a3e;
     --text-on-accent: #ffffff !important;
+}
+
+.metadata-add-button {
+    color: var(--text-faint);
 }
 
 body.is-mobile.theme-light {
@@ -266,6 +282,14 @@ body:not(.is-mobile).theme-light {
 
 .vertical-tab-content {
     background-color: var(--background-secondary-alt);
+}
+
+.vertical-tab-nav-item-icon {
+    color: var(--text-faint);
+}
+
+body:not(.is-grabbing) .tree-item-self.is-clickable:hover {
+    color: var(--text-normal) !important;
 }
 
 /* ANIMATIONS */
@@ -849,9 +873,9 @@ body.is-mobile .suggestion-group[data-group="properties"] ::selection {
 }
 
 .metadata-input.metadata-input-text {
-    background-color: var(--background-primary-alt) !important;
     border-radius: var(--radius-l);
 }
+
 .suggestion-item.bases-toolbar-menu-item.is-selected {
     background-color: #5c9aff !important;
     color: #ffffff !important;
@@ -1074,6 +1098,9 @@ body:not(.is-mobile) input.prompt-input {
     margin-left: 5px;
 }
 
+.iconic-icon {
+    color: var(--text-faint);
+}
 .iconic-prompt > .prompt-input-container > .prompt-input {
     padding-inline-start: 18px;
 }
@@ -1170,7 +1197,7 @@ body.is-mobile input.prompt-input {
     }
 
 .nav-folder-title {
-    color: var(--normal-text);
+    color: var(--text-normal);
 }
 
 body:not(.is-mobile) .nav-folder-title,
@@ -1197,18 +1224,19 @@ body.is-tablet .nav-file-title:hover {
 }
 
 body {
-    --anim-duration-fast: 0.2s;
-    --anim-duration-medium: 0.3s;
+    --anim-duration-fast: 200ms;
+    --anim-duration-medium: 300ms;
 }
 
 .nav-files-container .tree-item:not(.is-collapsed) .nav-folder-children {
     isolation: isolate;
-    animation: fade-in var(--anim-duration-fast) linear;
+  opacity: 0;
+    animation: fade-in var(--anim-duration-medium)  cubic-bezier(0.57, 0.58, 0.44, 1) forwards;
 }
-
 .nav-files-container .tree-item.is-collapsed .nav-folder-children {
     isolation: isolate;
-    animation: fade-out var(--anim-duration-medium) ease-out;
+    animation: fade-out var(--anim-duration-medium) cubic-bezier(0, 0, 0.58, 1); 
+    transition: height var(--anim-duration-medium)  cubic-bezier(0, 0, 0.58, 1) !important;
 }
 
 .is-mobile .nav-files-container {
@@ -1310,12 +1338,12 @@ body.is-mobile .empty-state-action {
 
 .theme-dark ::selection {
     background: #2260b0 !important;
-    color: var(--normal-text) !important;
+    color: var(--text-normal) !important;
 }
 
 .theme-light ::selection {
     background: #c3d7ff !important;
-    color: var(--normal-text) !important;
+    color: var(--text-normal) !important;
 }
 
 
@@ -1346,7 +1374,7 @@ mark .external-link,
     border-radius: 4px;
     background-color: var(--color-red-trans)!important;
     animation: flashing 0.6s;
-    color: var(--normal-text) !important;
+    color: var(--text-normal) !important;
     border: none;
     outline: none;
     z-index: 1;
@@ -1913,6 +1941,12 @@ body:not(.is-mobile) .view-content .image-embed:active img {
   opacity:1
 }
 
+
+.cm-strikethrough,
+del {
+    color: var(--text-faint);
+}
+
 /* Code Block Styling */
 
 code, pre {
@@ -2430,7 +2464,7 @@ body.is-mobile .iconic-icon {
 }
 
 .iconic-icon svg {
-    stroke-width: 1.3 !important;
+    stroke-width: var(--icon-l-stroke-width) !important;
 }
 
 
