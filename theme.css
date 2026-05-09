@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.18
+Version 2.6.19
 @paralloid, 2026-05-09
 ───────────────────────────────────────*/
 
@@ -81,10 +81,6 @@ body {
     --interactive-normal: var(--background-secondary) !important;
     --input-shadow: none !important;
     --input-shadow-hover: none !important;
-    --link-color: #72a8ff;
-    --link-external-color: #72a8ff;
-    --link-external-color-hover: #72a8ff;
-    --link-color-hover: #72a8ff;
     --link-decoration: none;
     --link-decoration-hover: none;
     --radius-s: 10px;
@@ -158,6 +154,10 @@ body.is-translucent .workspace-tab-header-container {
     --div-color: rgba(70, 70, 70, 0.9);
     --dropdown-background: rgba(70, 70, 70, 0.9);
     --icon-color: #838a95 !important;
+    --link-color: #72a8ff;
+    --link-external-color: #72a8ff;
+    --link-external-color-hover: #72a8ff;
+    --link-color-hover: #72a8ff;
     --menu-background: var(--background-secondary);
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 15%, transparent);
     --pill-background: rgb(50,50,50);
@@ -188,8 +188,9 @@ body.is-mobile.theme-dark {
     --mobile-sidebar-background: var(--background-secondary) !important;
     --div-color: rgba(60, 60, 60, 0.9);
     --background-modifier-border: rgba(0, 0, 0, 0.2);
+    --nav-item-background-active: #2c3138;
     --color-accent-2: hsl(calc(var(--accent-h) - 0), calc(var(--accent-s) * 0.8), calc(var(--accent-l) * 0.85)) !important;
-    --code-background: #3b4048;
+    --code-background: #13181d;
     --pill-background: rgb(20,20,20);
     --properties-background: #161a20;
     --modal-background: #2b3038;
@@ -255,6 +256,10 @@ body.is-tablet.theme-dark.tablet-full-black {
     --div-color: rgba(210, 210, 210, 0.5);
     --dropdown-background: rgba(150, 150, 150, 0.1);
     --icon-color: #b0b4b9 !important;
+    --link-color: #1f67cf;
+    --link-external-color: #1f67cf;
+    --link-external-color-hover: #1f67cf;
+    --link-color-hover: #1f67cf;
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --pill-background: rgb(237,237,237);
     --properties-background: var(--background-secondary);
@@ -303,6 +308,10 @@ body:not(.is-mobile).theme-light {
 
 body:not(.is-grabbing) .tree-item-self.is-clickable:hover {
     color: var(--text-normal) !important;
+}
+
+.tree-item-children {
+    border-inline-start: none;
 }
 
 /* ANIMATIONS */
@@ -1218,12 +1227,12 @@ body.is-mobile .nav-file-title {
     padding-bottom: 8px !important;
 }
 
-body.is-tablet .nav-folder-title:active,
+/* body.is-tablet .nav-folder-title:active,
 body.is-tablet .nav-file-title:active,
 body.is-tablet .nav-folder-title:hover,
 body.is-tablet .nav-file-title:hover {
     transition: background-color 0.2s ease-out;
-}
+} */
 
 .nav-files-container .tree-item-self .tree-item-icon:not(.iconic-icon) {
     right: 2px;
@@ -1249,12 +1258,12 @@ body {
     transform: translateZ(0);
 }
 
-.nav-file-title-content, .nav-folder-title-content {
-    white-space: var(--nav-item-white-space);
+body:not(.is-mobile) .tree-item-self {
+    border-radius: 8px;
 }
 
-.tree-item-self .nav-file-title .tappable .is-clickable .is-active .has-focus {
-    background-color: var(--background-primary);
+.is-mobile .tree-item-self {
+    border-radius: 12px;
 }
 
 .search-results-children .tree-item-flair {
