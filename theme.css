@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.17
+Version 2.6.18
 @paralloid, 2026-05-09
 ───────────────────────────────────────*/
 
@@ -81,8 +81,10 @@ body {
     --interactive-normal: var(--background-secondary) !important;
     --input-shadow: none !important;
     --input-shadow-hover: none !important;
-    --link-color: var(--text-accent);
-    --link-color-hover: var(--text-accent-hover);
+    --link-color: #72a8ff;
+    --link-external-color: #72a8ff;
+    --link-external-color-hover: #72a8ff;
+    --link-color-hover: #72a8ff;
     --link-decoration: none;
     --link-decoration-hover: none;
     --radius-s: 10px;
@@ -178,7 +180,7 @@ body.is-mobile.theme-dark {
     --accent-s: 100% !important;
     --accent-l: 70% !important;
     --background-primary: #1d2228;
-    --background-secondary: #1b2026;
+    --background-secondary: #13181d;
     --background-secondary-alt: #2c3138;
     --titlebar-background: var(--background-primary);
     --menu-background: #272d33;
@@ -266,8 +268,12 @@ body.is-tablet.theme-dark.tablet-full-black {
     --text-on-accent: #ffffff !important;
 }
 
-.metadata-add-button {
+body:not(.is-mobile) .metadata-add-button {
     color: var(--text-faint);
+}
+
+.is-mobile .metadata-add-button {
+    color: var(--icon-color);
 }
 
 body.is-mobile.theme-light {
@@ -286,7 +292,13 @@ body:not(.is-mobile).theme-light {
 }
 
 .vertical-tab-nav-item-icon {
-    color: var(--text-faint);
+    color: var(--icon-color);
+}
+
+@media (hover: hover) {
+    .vertical-tab-nav-item:hover .vertical-tab-nav-item-icon {
+        color: var(--icon-color);
+    }
 }
 
 body:not(.is-grabbing) .tree-item-self.is-clickable:hover {
@@ -729,7 +741,7 @@ a.tag:not(.bases-rendered-value) {
 /* styling properties */
 
 body.is-mobile .metadata-content {
-    background-color: var(--background-secondary);
+    background-color: var(--properties-background);
 }
 
 .metadata-content {
@@ -744,7 +756,7 @@ body:not(.is-mobile) .metadata-properties {
 
 body.is-mobile .metadata-properties {
     background-color: var(--properties-background);
-    border-radius: var(--radius-l);
+    /* border-radius: var(--radius-l); */
     padding: 3px;
 }
 
