@@ -41,8 +41,6 @@ Don't mix it with legendary [Things Theme](https://www.google.com/url?sa=t&sourc
 - [Zen Mode] More space to the inline title and slight padding adjustments for the icon
 - [Iconic] since 2.3.4 finally works with this plugin as well :) 
 
-NOTE: This theme seems to be not compatible with **Iconic** plugin!
-
 It is recommended to be used with these plugins:
 - Iconize
 - Daily Note Calendar
