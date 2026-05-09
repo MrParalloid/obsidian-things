@@ -1,6 +1,6 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.6.16
+Version 2.6.17
 @paralloid, 2026-05-09
 ───────────────────────────────────────*/
 
@@ -73,7 +73,6 @@ body {
     --p-spacing-empty: 0rem;
     --list-spacing: 0em;
     --checkbox-color: var(--color-accent);
-    --icon-color: var(--color-grey) !important;
     --embed-padding: 0px;
     --tab-container-background: var(--background-secondary);
     --titlebar-background-focused: var(--titlebar-background);
@@ -156,6 +155,7 @@ body.is-translucent .workspace-tab-header-container {
     --color-accent: #4d94f7 !important;
     --div-color: rgba(70, 70, 70, 0.9);
     --dropdown-background: rgba(70, 70, 70, 0.9);
+    --icon-color: #838a95 !important;
     --menu-background: var(--background-secondary);
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 15%, transparent);
     --pill-background: rgb(50,50,50);
@@ -252,6 +252,7 @@ body.is-tablet.theme-dark.tablet-full-black {
     --color-accent: #0062c1 !important;
     --div-color: rgba(210, 210, 210, 0.5);
     --dropdown-background: rgba(150, 150, 150, 0.1);
+    --icon-color: #b0b4b9 !important;
     --mobile-glass-border: color-mix(in srgb, rgb(255,255,255) 80%, transparent);
     --pill-background: rgb(237,237,237);
     --properties-background: var(--background-secondary);
@@ -1094,13 +1095,6 @@ body:not(.is-mobile) input.prompt-input {
     margin-bottom: 0px;
 }
 
-.iconic-item {
-    margin-left: 5px;
-}
-
-.iconic-icon {
-    color: var(--text-faint);
-}
 .iconic-prompt > .prompt-input-container > .prompt-input {
     padding-inline-start: 18px;
 }
@@ -1277,6 +1271,10 @@ body {
 .clickable-icon.is-active {
     opacity: var(--icon-opacity-hover);
     color: var(--accent-color);
+}
+
+.clickable-icon {
+    color: var(--icon-color);
 }
 
 /* buttons */
@@ -2455,7 +2453,7 @@ body:not(.is-mobile) .iconic-icon {
   transform: scale(1.1);
 }
 
-body.is-mobile .iconic-icon {
+body.is-mobile .iconic-icon:not(.mod-raised) {
   transform: scale(1.2);
 }
 
@@ -2465,6 +2463,14 @@ body.is-mobile .iconic-icon {
 
 .iconic-icon svg {
     stroke-width: var(--icon-l-stroke-width) !important;
+}
+
+.iconic-item {
+    margin-left: 5px;
+}
+
+.iconic-icon:not(.mod-raised) {
+    color: var(--icon-color);
 }
 
 
