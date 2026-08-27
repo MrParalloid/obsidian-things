@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.7.2
-@paralloid, 2026-07-02
+Version 2.7.3
+@paralloid, 2026-08-27
 ───────────────────────────────────────*/
 
 /* @settings
@@ -9,7 +9,6 @@ Version 2.7.2
 name: Things 3 Settings
 id: things-3-settings
 settings:
-
     -
         id: mobile-full-black
         title: Black background on Phones
@@ -106,6 +105,7 @@ body {
     --divider-color: rgba(0,0,0,0.05);
     --nav-item-background-hover: none;
     --setting-items-radius: var(--radius-l);
+    --settings-background: var(--background-primary) !important;
     --button-radius: var(--radius-l);
     --tab-shadow: 0 0px 6px rgba(0, 0, 0, 0.2);
 }
@@ -152,6 +152,7 @@ body.is-translucent .workspace-tab-header-container {
 /* DESKTOP DARK MODE COLORS */
 .theme-dark {
     --accent-color: #4d94f7;
+    --color-accent: var(--accent-color) !important;
     --accent-h: 213 !important;
     --accent-l: 70% !important;
     --accent-s: 100% !important;
@@ -165,7 +166,6 @@ body.is-translucent .workspace-tab-header-container {
     --checklist-done-color: #8a919b;
     --code-background: var(--properties-background);
     --color-accent-2: hsl(calc(var(--accent-h) - 0), calc(var(--accent-s) * 0.8), calc(var(--accent-l) * 0.85)) !important;
-    --color-accent: #4d94f7 !important;
     --div-color: rgba(70, 70, 70, 0.9);
     --dropdown-background: rgba(70, 70, 70, 0.9);
     --icon-color: #838a95 !important;
@@ -195,12 +195,11 @@ body.is-translucent .workspace-tab-header-container {
 
 /* MOBILE DARK MODE COLORS */
 body.is-mobile.theme-dark {
-    --accent-color: #4d94f7;
-    --color-accent: #4d94f7 !important;
     --accent-h: 213 !important;
     --accent-s: 100% !important;
     --accent-l: 70% !important;
     --background-primary: #1d2228;
+    --background-primary-alt: #2c3138;
     --background-secondary: #13181d;
     --background-secondary-alt: #2c3138;
     --titlebar-background: var(--background-primary);
@@ -328,9 +327,9 @@ body:not(.is-mobile).theme-light {
     --menu-background: #3f4347;
 }
 
-.vertical-tab-content {
+/* .vertical-tab-content {
     background-color: var(--background-secondary-alt);
-}
+} */
 
 .vertical-tab-nav-item-icon {
     color: var(--icon-color);
@@ -573,10 +572,6 @@ body:not(.is-mobile) .modal.mod-settings .modal-close-button {
 body:not(.is-mobile) .modal-close-button {
     margin-top: 5px;
     margin-right: 5px;
-}
-
-body:not(.is-mobile) .modal.mod-settings {
-    border-radius: var(--radius-l);
 }
 
 body:not(.is-mobile) .modal.mod-settings .modal-close-button:hover {
@@ -1095,12 +1090,6 @@ body:not(.is-mobile).theme-light .prompt {
 .mod-settings {
     --accent-color: #3188f4 !important;
     --text-on-accent: #ffffff !important;
-}
-
-.mod-settings {
-    display: flex;
-    animation: zoom-in 100ms ease-out;
-    transform-origin: center;
 }
 
 .mod-settings .setting-item-control input[type="color"] {
