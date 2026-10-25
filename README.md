@@ -7,8 +7,6 @@ Just my take on Things 3 integration, by providing visual consistency between th
 
 Hope you'll enjoy it!
 
-Don't mix it with legendary [Things Theme](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://github.com/colineckert/obsidian-things&ved=2ahUKEwiy3Li9oY-MAxUOSPEDHZGqKVUQFnoECBUQAQ&usg=AOvVaw2YUK11ZDLIbbSD1G9rrdi-) by Colin Eckert!
-
 ## Features
 - Exact color match with Things 3 for Light and Dark options, Desktop and Mobile
 - Things 3 like Animations, including Pull Down menu on mobiles
