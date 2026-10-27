@@ -1,7 +1,7 @@
 /*──────────────────────────────────────
 Things 3 Theme for Obsidian
-Version 2.7.5
-@paralloid, 2026-10-25
+Version 2.7.6
+@paralloid, 2026-10-27
 ───────────────────────────────────────*/
 
 /* @settings
@@ -1061,6 +1061,9 @@ body:not(.is-mobile).theme-light .prompt {
     --text-on-accent: #ffffff !important;
 }
 
+.modal.mod-settings:has(
+	.vertical-tab-nav-item[data-setting-id="appearance"].is-active
+)
 .setting-group:first-of-type
 .setting-items > .setting-item:nth-child(2) {
 	.setting-item-control {
